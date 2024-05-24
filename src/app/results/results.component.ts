@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { InvestmentResults } from '../investment.model';
+import { Component } from '@angular/core';
+import { InvestmentService } from '../inestment.service';
 
 @Component({
   selector: 'app-results',
@@ -8,9 +8,9 @@ import { InvestmentResults } from '../investment.model';
 })
 export class ResultsComponent {
 
-  constructor() { }
-  @Input() results?: InvestmentResults[];
-  ngOnInit(){
-  }
+  constructor(private invService: InvestmentService){}
 
+  get results(){
+    return this.invService.resultsData;
+  }
 }
